@@ -18,7 +18,7 @@ This is the frontend for **Clearmeet AI**, an intelligent meeting summarizer too
 - Generate summaries and action items using AI
 - Extract deadlines from natural language
 - Export to **PDF** or **JSON**
-- Integration with **Slack** a
+- Integration with **Slack** 
 
 
 ## 📦 Deployment
