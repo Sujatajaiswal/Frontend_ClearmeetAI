@@ -118,8 +118,8 @@ const Upload = ({ onTranscriptSubmit }) => {
     }
 
     // Validate file size (max 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      setError("File size exceeds 5MB limit.");
+    if (file.size > 100 * 1024 * 1024) {
+      setError("File size exceeds 100MB limit.");
       setLoading(false);
       return;
     }
