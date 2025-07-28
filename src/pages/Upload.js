@@ -142,10 +142,14 @@ const Upload = ({ onTranscriptSubmit }) => {
         const formData = new FormData();
         formData.append("audio", file);
 
-        const response = await fetch("http://localhost:5000/api/transcribe", {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          "https://backend-clearmeetai-1.onrender.com/api/transcribe",
+          {
+            //const response = await fetch("http://localhost:5000/api/transcribe", {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         const result = await response.json();
 
