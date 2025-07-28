@@ -16,6 +16,7 @@ const Upload = ({ onTranscriptSubmit }) => {
       return;
     }
 
+    // Validate file size (max 5MB)
     if (file.size > 100 * 1024 * 1024) {
       setError("File size exceeds 100MB limit.");
       setLoading(false);
@@ -27,6 +28,7 @@ const Upload = ({ onTranscriptSubmit }) => {
       const fileName = file.name.toLowerCase();
 
       if (fileType === "text/plain" || fileName.endsWith(".txt")) {
+        // Handle .txt transcript
         const text = await file.text();
         onTranscriptSubmit(text);
       } else if (
@@ -34,11 +36,12 @@ const Upload = ({ onTranscriptSubmit }) => {
         fileName.endsWith(".mp3") ||
         fileName.endsWith(".wav")
       ) {
+        // Handle audio file
         const formData = new FormData();
-        formData.append("txt", file); // ✅ This must match multer field in backend
+        formData.append("audio", file);
 
         const response = await fetch(
-          "https://backend-clearmeetai-1.onrender.com/api/transcribe",
+          "https://backend-clearmeetai-2.onrender.com/api/transcribe",
           {
             method: "POST",
             body: formData,
@@ -51,7 +54,8 @@ const Upload = ({ onTranscriptSubmit }) => {
           throw new Error(result.error || "Transcription failed.");
         }
 
-        onTranscriptSubmit(result.transcript);
+        const transcript = result.transcript;
+        onTranscriptSubmit(transcript);
       } else {
         setError("Unsupported file type. Please upload .txt, .mp3, or .wav.");
       }

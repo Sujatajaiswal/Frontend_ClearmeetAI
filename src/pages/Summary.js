@@ -8,7 +8,6 @@ import axios from "axios"; // ✅ Use axios to call backend instead of direct Sl
 const Summarize = () => {
   const [summary, setSummary] = useState("");
   const [actionItems, setActionItems] = useState([]);
-
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const pdfRef = useRef(null);
