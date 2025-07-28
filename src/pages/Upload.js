@@ -17,8 +17,8 @@
 //     }
 
 //     // File size limit: 30MB
-//     if (file.size > 30 * 1024 * 1024) {
-//       setError("File size exceeds 30MB limit.");
+//     if (file.size > 50 * 1024 * 1024) {
+//       setError("File size exceeds 50MB limit.");
 //       setLoading(false);
 //       return;
 //     }
@@ -38,7 +38,8 @@
 //         const formData = new FormData();
 //         formData.append("audio", file);
 
-//         const response = await fetch("http://localhost:5000/api/transcribe", {
+//         const response = await fetch("https://backend-clearmeetai-1.onrender.com/api/transcribe", {
+
 //           method: "POST",
 //           body: formData,
 //         });
